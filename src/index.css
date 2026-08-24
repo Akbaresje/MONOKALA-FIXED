@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,700;6..96,800;6..96,900&family=DM+Serif+Display:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #1e3f20;
+  --color-forest-deep: #1b3620;
+  --color-forest-soft: #35583a;
+  --color-linen: #fcf9f3;
+  --color-linen-2: #f7f3eb;
+  --color-sand: #efe9dd;
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #2c2c2c;
+  --color-muted: #7c7669;
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* shadcn semantic tokens — mapped to MONOKALA palette */
+  --color-background: #fcf9f3;
+  --color-foreground: #1a1a1a;
+  --color-card: #fcf9f3;
+  --color-card-foreground: #1a1a1a;
+  --color-popover: #fcf9f3;
+  --color-popover-foreground: #1a1a1a;
+  --color-primary: #1e3f20;
+  --color-primary-foreground: #fcf9f3;
+  --color-secondary: #e6dccf;
+  --color-secondary-foreground: #1a1a1a;
+  --color-muted-foreground: #7c7669;
+  --color-accent: #e6dccf;
+  --color-accent-foreground: #1a1a1a;
+  --color-destructive: #8b3a3a;
+  --color-destructive-foreground: #fcf9f3;
+  --color-border: #e6dccf;
+  --color-input: #e6dccf;
+  --color-ring: #1e3f20;
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.375rem;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background-color: #fcf9f3;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.smallcaps {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.22em;
+  text-transform: lowercase;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: riseIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes sheetUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+.sheet-up {
+  animation: sheetUp 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn 0.3s ease both;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.pulse-ring {
+  animation: pulseRing 2.2s ease-out infinite;
+}
+
+/* Category swap: content fades/lifts in after an instant scroll reset */
+@keyframes sectionSwap {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.section-swap {
+  animation: sectionSwap 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .section-swap,
+  .sheet-up,
+  .fade-in,
+  .pulse-ring {
+    animation: none !important;
+  }
+}
